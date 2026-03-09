@@ -730,22 +730,23 @@ html {
     transform: scale(1.02);
 }
 
-/* Responsivo Limitado (Foco em Desktop p/ Apresentação) */
+/* Responsividade Completa (Tablet e PC menores) */
 @media (max-width: 1200px) {
     .content {
-        padding: 3rem;
+        padding: 4rem 3rem;
     }
 
     .title {
-        font-size: 4rem;
+        font-size: clamp(3rem, 6vw, 4.5rem);
     }
 
     .section-title {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
     }
 
     .cards-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .gov-flex {
@@ -755,14 +756,140 @@ html {
 
     .split-panel {
         flex-direction: column;
+        display: block;
+        overflow-y: auto;
     }
 
     .split-image {
         display: none;
     }
 
+    .split-content {
+        padding: 6rem 3rem 4rem 3rem;
+    }
+
     .bento-grid,
     .tech-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Responsividade Completa (Dispositivos Móveis - Smartphones) */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 1.5rem;
+        background: rgba(10, 20, 35, 0.95);
+        /* Cobre o conteúdo atrás quando fixa */
+        backdrop-filter: blur(10px);
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    /* Oculta no mobile para focar na logo */
+
+    /* Permite scroll vertical DENTRO de cada painel horizontal no celular */
+    .panel {
+        align-items: flex-start;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    /* Ajustes dos containers para não quebrarem o layout mobile */
+    .content {
+        padding: 7rem 1.5rem 3rem 1.5rem;
+    }
+
+    .split-content {
+        padding: 7rem 1.5rem 3rem 1.5rem;
+    }
+
+    .title {
+        font-size: clamp(2.5rem, 8vw, 3rem);
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+        font-size: clamp(2rem, 7vw, 2.5rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .tagline,
+    .text-body {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+
+    /* Todos os grids viram 1 coluna no celular */
+    .bento-grid,
+    .tech-grid,
+    .client-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Redução de paddings internos nos cartões */
+    .glass-card-light {
+        padding: 2rem 1.5rem;
+    }
+
+    .bento-item {
+        padding: 1.5rem;
+    }
+
+    .tech-item {
+        padding: 2rem 1.5rem;
+    }
+
+    .client-box {
+        padding: 1.5rem;
+    }
+
+    .results-panel {
+        padding: 2.5rem 1.5rem;
+        border-radius: 16px;
+        margin-top: 2rem;
+    }
+
+    .results-panel h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .res-row {
+        font-size: 1.05rem;
+        margin-bottom: 1rem;
+    }
+
+    .res-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .final-pillars {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .pillar-text {
+        font-size: 1.1rem;
+    }
+
+    /* Ajuste da logo final no mobile */
+    .mega-title img {
+        height: 60px !important;
+    }
+
+    .mega-title span {
+        font-size: 2rem !important;
+        margin-left: 10px !important;
     }
 }
